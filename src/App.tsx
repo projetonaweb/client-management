@@ -1,9 +1,16 @@
+import { RouteList } from './routes/RouteList';
+import { GlobalContainer } from './styles/global'
+import { BrowserRouter } from 'react-router-dom'
+
 
 const App = () => {
   return (
-    <div className="App">
 
-    </div>
+    <BrowserRouter>
+      <RouteList />
+      <GlobalContainer />
+    </BrowserRouter>
+
   );
 }
 
