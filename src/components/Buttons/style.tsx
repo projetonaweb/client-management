@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const ButtonPersonalized = styled.button`
+type ButtonTypes = {
+  color2?: string
+};
+
+export const ButtonPersonalized = styled.button<ButtonTypes>`
   background-color: ${props => `${props.color}`};
   width: 200px;
   height: 40px;
@@ -10,5 +14,8 @@ export const ButtonPersonalized = styled.button`
   font-weight: bold;
   cursor: pointer;
   border-radius: 10px;
+  &:hover {
+    background-color: ${props => props.color2}
+  }
 `
 
