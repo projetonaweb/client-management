@@ -11,14 +11,7 @@ type PropsType = {
   handleOnChange?: any;
 };
 
-export const Inputs = ({
-  type,
-  id,
-  name,
-  placeholder,
-  handleOnChange,
-  value,
-}: PropsType) => {
+export const Inputs = ({ type, id, name, placeholder, handleOnChange, value,}: PropsType) => {
   return (
     <C.ContainerInputs>
       <label htmlFor={id}>{name}</label>
