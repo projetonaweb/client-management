@@ -1,7 +1,18 @@
-import { ButtonPersonalized } from './style'
+import { ButtonPersonalized } from "./style";
 
-const Buttons = ({ onClick, color, text }: any) => {
-  return <ButtonPersonalized onClick={onClick} color={color}>{text}</ButtonPersonalized>
-}
+type ButtonsTypes = {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  color: string;
+  text: string;
+  color2?: string
+};
 
-export default Buttons
+const Buttons = ({ onClick, color, text, color2 }: ButtonsTypes) => {
+  return (
+    <ButtonPersonalized onClick={onClick} color2={color2} color={color}>
+      {text}
+    </ButtonPersonalized>
+  );
+};
+
+export default Buttons;
