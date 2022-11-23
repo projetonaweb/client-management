@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backImage from "../../assets/a.png";
+
 
 export const SingUpContainer = styled.div`
   width: 100vw;
@@ -32,7 +32,6 @@ export const RigthSingUp = styled.div`
   align-items: center;
   padding-top: 200px;
   flex-direction: column;
-  /* background-image: url(${backImage}); */
   background-repeat: no-repeat;
   background-size: cover;
   h1 {

@@ -14,24 +14,12 @@ export const SingIn = () => {
   const [remember, setRemember] = useState<Boolean>(false)
 
   const navigate = useNavigate();
-  const handleRegister = () => {
-    navigate("/register");
-  };
+  const handleRegister = () => navigate("/register");
 
-  const handleUserInput = ({ target }: EventTypes) => {
-    setUser(target.value)
-  }
-
-  const handlePasswordInput = ({ target }: EventTypes) => {
-    setPassword(target.value)
-  }
-   
-  const handleRemember = (e: EventTypes) => {
-    setRemember(e.target.checked)
-  }
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-  }
+  const handleUserInput = ({ target }: EventTypes) => setUser(target.value)
+  const handlePasswordInput = ({ target }: EventTypes) => setPassword(target.value)
+  const handleRemember = (e: EventTypes) => setRemember(e.target.checked)
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => event.preventDefault()
 
   const handleLogin = async () => { // AQUI SERA UMA REQUISIÇÃO GET PARA VERIFICAR SE TEM O USUARIO CADASTRADO
     await fetch('http://localhost:8000/usuarios', {
