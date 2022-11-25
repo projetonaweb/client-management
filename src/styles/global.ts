@@ -12,6 +12,9 @@ export const GlobalContainer = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  ul {
+    list-style: none;
+  }
   input[type="text"], input[type="password"] {
     width: 100%;
       height: 45px;
