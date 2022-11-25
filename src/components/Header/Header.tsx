@@ -15,9 +15,20 @@ const Header = () => {
       </div>
 
       <C.HeaderContainer>
-        <BsFillPeopleFill className='icon' />
-        <AiOutlinePrinter className='icon' />
-        <GoGear className='icon' />
+        <div className="people-icon">
+          <BsFillPeopleFill className='icon' />
+          <p className='text-icons'>Clientes</p>
+        </div>
+
+        <div className="print-icon">
+          <AiOutlinePrinter className='icon' />
+          <p className='text-icons'>Imprimir</p>
+        </div>
+
+        <div className="configs-icon">
+          <GoGear className='icon' />
+          <p className='text-icons'>Configurações</p>
+        </div>
       </C.HeaderContainer >
     </C.ContainerHeader>
   )
