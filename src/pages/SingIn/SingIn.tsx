@@ -16,11 +16,6 @@ export const SingIn = () => {
   const navigate = useNavigate();
   const handleRegister = () => navigate("/register");
 
-  const handleUserInput = ({ target }: EventTypes) => setUser(target.value)
-  const handlePasswordInput = ({ target }: EventTypes) => setPassword(target.value)
-  const handleRemember = (e: EventTypes) => setRemember(e.target.checked)
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => event.preventDefault()
-
   const handleLogin = async () => { // AQUI SERA UMA REQUISIÇÃO GET PARA VERIFICAR SE TEM O USUARIO CADASTRADO
     await fetch('http://localhost:8000/usuarios', {
       method: 'POST',
@@ -47,7 +42,7 @@ export const SingIn = () => {
       </C.LeftSingUp>
 
       <C.RigthSingUp>
-        <C.Form onSubmit={handleSubmit}>
+        <C.Form onSubmit={(event: React.FormEvent<HTMLFormElement>) => event.preventDefault()}>
           <Title message="Insira seus dados" />
           <Inputs
             type="text"
@@ -55,7 +50,7 @@ export const SingIn = () => {
             name="Login"
             placeholder="Insira seu usuario"
             value={user}
-            handleOnChange={handleUserInput}
+            handleOnChange={({ target }: EventTypes) => setUser(target.value)}
           />
           <Inputs
             type="password"
@@ -63,12 +58,12 @@ export const SingIn = () => {
             name="Senha"
             placeholder="Digite sua senha"
             value={password}
-            handleOnChange={handlePasswordInput}
+            handleOnChange={({ target }: EventTypes) => setPassword(target.value)}
           />
 
           <C.PasswordForgot>
             <span>
-              <input id="lembrar" type="checkbox" onChange={handleRemember}/>
+              <input id="lembrar" type="checkbox" onChange={({ target }: EventTypes) => setRemember(target.checked)}/>
               <label htmlFor="lembrar">Lembrar</label>
             </span>
             <Link to="a">Esqueceu sua senha?</Link>
