@@ -10,19 +10,25 @@ export const ContainerHeader = styled.div`
   transition: all 0.3s;
   cursor: pointer;
   position: absolute;
+  z-index: 10;
+
   &:hover {
-    width: 200px;
-    .people-icon,
-    .print-icon,
-    .configs-icon {
-      transition: all 0.5s;
+    width: 180px;
+    &:hover
+    .container-icon {
       .text-icons {
-        display: block;
+        opacity: 1;
       }
+    }
+    &:hover .user-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
   .user-section {
     margin-left: 10px;
+    color: #ffffffb7;
     .image-user {
       width: 65px;
       height: 65px;
@@ -34,31 +40,37 @@ export const ContainerHeader = styled.div`
       cursor: pointer;
     }
   }
-
-  .people-icon,
-  .print-icon,
-  .configs-icon {
-    width: 100%;
+  
+  .container-icon {
     display: flex;
     align-items: center;
+    transition: all .3s;
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    &:hover {
+      background-color: #4d8cf0;
+    }
     .icon {
-      font-size: 2rem;
-      color: white;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      color: #ffffffca;
       cursor: pointer;
     }
     .text-icons {
-      border: 1px solid red;
-      display: none;
-      margin-left: 10px;
+      transition: all .3s;
+      opacity: 0;
+      margin-left: 20px;
+      font-weight: 400;
     }
   }
-`;
+  `;
 
 export const HeaderContainer = styled.nav`
   width: 100%;
-  height: 400px;
+  height: 350px;
   display: flex;
-  padding-left: 10px;
   justify-content: space-around;
   flex-direction: column;
-`;
+  `;
