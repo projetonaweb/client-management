@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import * as C from "./style";
 
 type PropsType = {
-  id: string;
+  id?: string;
   type: string;
   name?: string;
   placeholder?: string;
