@@ -1,6 +1,6 @@
 import React from 'react'
 import Cards from '../../components/Cards/Cards'
-import ClientsPanel from '../../components/ClientsPanel/ClientsPanel'
+import Charts from '../../components/Charts/Charts'
 import Header from '../../components/Header/Header'
 import { Title } from '../../components/Title/Title'
 import * as C from './style'
@@ -29,10 +29,8 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="client_panel">
-          <Title message='Clientes cadastrados' />
-          <ClientsPanel />
-        </div>
+
+        <Charts />
       </C.ContainerPanel>
       
     </C.ContainerHome>
