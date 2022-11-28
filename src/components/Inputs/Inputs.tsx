@@ -9,13 +9,15 @@ type PropsType = {
   placeholder?: string;
   value?: any;
   handleOnChange?: any;
+  disabled?: boolean
 };
 
-export const Inputs = ({ type, id, name, placeholder, handleOnChange, value,}: PropsType) => {
+export const Inputs = ({ type, id, name, placeholder, handleOnChange, value, disabled}: PropsType) => {
   return (
     <C.ContainerInputs>
       <label htmlFor={id}>{name}</label>
       <input
+        disabled={disabled}
         required
         placeholder={placeholder}
         id={id}
