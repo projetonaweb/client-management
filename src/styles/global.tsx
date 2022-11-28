@@ -8,6 +8,7 @@ export const GlobalContainer = createGlobalStyle`
   }
   body {
     font-family: 'Jost', sans-serif;
+    background-color: aliceblue;
   }
   a {
     text-decoration: none;
@@ -16,7 +17,7 @@ export const GlobalContainer = createGlobalStyle`
   ul {
     list-style: none;
   }
-  input[type="text"], input[type="password"] {
+  input[type="text"], input[type="password"], input[type="number"] {
     width: 100%;
       height: 45px;
       margin: 10px 0;
