@@ -4,9 +4,9 @@ import { Title } from "../../components/Title/Title";
 import { Inputs } from "../../components/Inputs/Inputs";
 import Buttons from "../../components/Buttons/Buttons";
 import { Link, useNavigate } from "react-router-dom";
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
+import type { EventTypes, FormTypes } from '../../types/EventTypes'
 
-type EventTypes = ChangeEvent<HTMLInputElement>
 
 export const SingIn = () => {
   const [user, setUser] = useState<String>()
@@ -42,7 +42,7 @@ export const SingIn = () => {
       </C.LeftSingUp>
 
       <C.RigthSingUp>
-        <C.Form onSubmit={(event: React.FormEvent<HTMLFormElement>) => event.preventDefault()}>
+        <C.Form onSubmit={(event: FormTypes) => event.preventDefault()}>
           <Title message="Insira seus dados" />
           <Inputs
             type="text"
