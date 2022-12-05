@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
 export const ContainerClientsPanel = styled.div`
-  width: 80vw;
+  width: 85vw;
+  height: 80vh;
+  overflow: hidden;
   box-shadow: 1px 1px 3px #0000003d;
   border-radius: 10px;
   padding: 20px;
   background-color: white;
-  .header-clients {
-    height: 30px;
-    margin-right: 55px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    justify-content: space-between;
-  }
+
   .clients-area {
     width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
     .clients-itens {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      width: 250px;
+      height: 180px;
+      border: 1px solid red;
       padding: 20px 10px;
       border-bottom: 1px solid #13131321;
       cursor: pointer;
@@ -27,10 +27,7 @@ export const ContainerClientsPanel = styled.div`
         border-radius: 5px;
         background-color: #63a5f139;
       }
-      .service {
-        width: 700px;
-        text-align: center;
-      }
+
     }
   }
 `

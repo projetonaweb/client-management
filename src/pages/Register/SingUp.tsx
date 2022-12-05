@@ -4,6 +4,7 @@ import { Title } from "../../components/Title/Title";
 import * as C from "./style";
 import { useState } from "react";
 import Buttons from "../../components/Buttons/Buttons";
+var validator = require('validator');
 
 const SingUp = () => {
   const [name, setName] = useState<String>("");
@@ -12,6 +13,7 @@ const SingUp = () => {
   const [password, setPasssword] = useState<String>("");
   const [passwordConfirm, setPassswordConfirm] = useState<String>("");
   const [cep, setCep] = useState<String>("");
+
 
   return (
     <C.ContainerRegister>
@@ -46,11 +48,9 @@ const SingUp = () => {
           name="Email"
           value={email}
           placeholder="Digite seu email"
-          handleOnChange={({ target }: React.ChangeEvent<HTMLInputElement>) =>
-            setEmail(target.value)
-          }
+          handleOnChange={({ target }: React.ChangeEvent<HTMLInputElement>) => setEmail(target.value)}
         />
-
+        
         <Inputs
           type="password"
           id="senha"

@@ -2,7 +2,7 @@ import React from 'react'
 import * as C from './style'
 import { Title } from '../Title/Title'
 type CardsType = {
-  quantidade: string,
+  quantidade: string | number,
   text: string
 }
 const Cards = ({quantidade, text}: CardsType) => {
