@@ -23,7 +23,7 @@ export const Inputs = ({ type, id, name, placeholder, handleOnChange, value, dis
         id={id}
         type={type}
         onChange={handleOnChange}
-        value={value || ""}
+        value={value}
       />
     </C.ContainerInputs>
   );
