@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 
 
 
 const Charts = () => {
-  const [selectOption, setSelectOption] = useState('line')
-  
+  const [a, setA] = useState([])
+/* 
+  const getClientsData = async () => {
+    const data = await fetch('https://acaobikeapi.projetonaweb.com.br/clientes')
+    const res = await data.json()
+
+    setA(res)
+  }
+  useEffect(() => {
+    getClientsData()
+  },[]) */
+
   const [options, setOptions] = useState({   
     xaxis: {
       categories: ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ']
@@ -14,7 +24,7 @@ const Charts = () => {
 
   const [series, setSeries] = useState([{
       name: "series-1",
-      data: [30, 40, 45, 50, 49, 60, 70, 91, 10, 324, 123, 12]
+      data: [a.length]
     }
   ])
 
