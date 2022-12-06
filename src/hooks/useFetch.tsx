@@ -1,41 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { api } from '../services/api'
 
-export const useFetch = (url: string) => {
+export function useFetch<T> (url: string) {
 
-const [clients, setClient] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState<T | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
-    const getDataClient = async () => {
-      try {
-        setLoading(true)
-        const { data: jsonClient } = await api.get(url)
-        setClient(jsonClient)
-      } catch (error) {
-        console.error('ERRO: ', error)
-      }finally {
-        setLoading(false)
-      }
-    }
-    getDataClient()
+    api.get(url).then(response => setData(response.data))
+    .catch(err => setError(err))
+    .finally(() => setLoading(false))
   }, [url])
 
   return {
-    clients,
-    loading
+    data,
+    loading,
+    error
   }
 }
-
-/* 
-const [clientsData, setClientsData] = useState([])
-  
-const getClientsData = async () => {
-  const data = await fetch('https://acaobikeapi.projetonaweb.com.br/clientes')
-  const res = await data.json()
-  setClientsData(res)
-}
-
-useEffect(() => {
-  getClientsData()
-},[]) */

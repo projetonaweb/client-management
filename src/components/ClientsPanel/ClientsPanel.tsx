@@ -3,6 +3,7 @@ import * as C from "./style";
 import { useFetch } from "../../hooks/useFetch";
 import { api } from "../../services/api";
 import ModalClientsData from "../ModalClientsData/ModalClientsData";
+import useClients from "../../hooks/useClients";
 
 const ClientsPanel = () => {
   const pagination = false;
@@ -11,15 +12,7 @@ const ClientsPanel = () => {
   const [clientData, setClientData] = useState<any>([]);
   const [id, setId] = useState<any>();
 
-  const { clients, loading } = useFetch("/clientes");
-
-  /*   const getInfosClient = async (id: number, index: number) => {
-      setId(id)
-    
-    const clientsA: any = await api.get(`/endereco/${id}`);
-    setClientAdress(clientsA.data)
-    setClientData(client[index])
-  }; */
+  const { data: clientes, loading } = useClients();
 
   return (
     <>
@@ -35,7 +28,7 @@ const ClientsPanel = () => {
       <C.ContainerClientsPanel>
         <ul className="clients-area">
           {loading && "Carregando..."}
-          {clients?.map(
+          {clientes?.map(
             ({ id, nome, sobrenome, created_at, updated_at }, index: any) => (
               <li
                 key={id}
