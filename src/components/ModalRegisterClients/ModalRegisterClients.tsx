@@ -25,6 +25,7 @@ const ModalRegisterClients = ({ onClick, setModal }: ModalType) => {
   const date = new Date();
   const dateFormated = date.toLocaleString();
 
+
   const handleAddClient = async () => {
     api.post('/clientes', { 
       nome: name,
@@ -41,8 +42,18 @@ const ModalRegisterClients = ({ onClick, setModal }: ModalType) => {
         cidade: "são paulo",
         estado: "SP",
         created_at: dateFormated,
-        updated_at: "2022-12-03T18:56:19.000000Z"
-    }})
+        updated_at: "2022-12-03"
+      },
+      contato: {
+        email: 'dev.rodrigomolina@gmail.com',
+        telefone: 'userWhatsapp'
+      },
+      servico: {
+        descricao: service,
+        data: "2022-12-03",
+        data_retorno: "2022-12-30"
+      }
+  })
     setModal(false);
   };
 
