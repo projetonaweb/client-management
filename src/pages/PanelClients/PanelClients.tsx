@@ -8,7 +8,7 @@ import { Inputs } from "../../components/Inputs/Inputs";
 import Modal from "../../components/ModalRegisterClients/ModalRegisterClients";
 import type { EventTypes } from "../../types/EventTypes";
 
-const Clients = () => {
+const PanelClients = () => {
   const [modal, setModal] = useState(false);
 
   const handleModal = ({ target }: EventTypes) => {
@@ -33,4 +33,4 @@ const Clients = () => {
   );
 };
 
-export default Clients;
+export default PanelClients;

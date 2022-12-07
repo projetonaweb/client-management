@@ -4,7 +4,6 @@ import { GoGear } from "react-icons/go";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlinePrinter } from "react-icons/ai";
 import { SlGraph } from "react-icons/sl";
-import Modal from "../ModalRegisterClients/ModalRegisterClients";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -25,21 +24,21 @@ const Header = () => {
           <p className="text-icons">Dashboard</p>
         </Link>
 
-        <Link to="clients" className="container-icon">
+        <Link to="/clients" className="container-icon">
           <div className="icon">
             <BsFillPeopleFill />
           </div>
           <p className="text-icons">Clientes</p>
         </Link>
 
-        <Link to="print" className="container-icon">
+        <Link to="/print" className="container-icon">
           <div className="icon">
             <AiOutlinePrinter />
           </div>
           <p className="text-icons">Imprimir</p>
         </Link>
 
-        <Link to="configs" className="container-icon">
+        <Link to="/configs" className="container-icon">
           <div className="icon">
             <GoGear className="icon" />
           </div>

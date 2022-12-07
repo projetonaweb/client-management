@@ -14,6 +14,18 @@ export const ContainerClientsPanel = styled.div`
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      height: 180px;
+      border: 1px solid red;
+      padding: 20px 10px;
+      color: red;
+      border-bottom: 1px solid #13131321;
+    }
+
     .clients-itens {
       display: flex;
       flex-direction: column;

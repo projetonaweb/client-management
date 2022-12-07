@@ -2,10 +2,8 @@ import React from 'react'
 import { useFetch } from './useFetch'
 import { Client } from '../types/Client'
 
-const useClient = (id: number) => {
-
+const useClient = (id: string | undefined) => {
   return useFetch<{data: Client}>(`/clientes/${id}`)
-
 }
 
 export default useClient
