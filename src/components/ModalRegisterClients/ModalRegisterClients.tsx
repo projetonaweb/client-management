@@ -27,7 +27,7 @@ const ModalRegisterClients = ({ onClick, setModal }: ModalType) => {
 
 
   const handleAddClient = async () => {
-    api.post('/clientes', { 
+    await api.post('/clientes', { 
       nome: name,
       sobrenome: lastName,
       cpf: userCpf,
