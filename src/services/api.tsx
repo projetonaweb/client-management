@@ -2,7 +2,10 @@ import axios from 'axios'
 
 export const axiosInstance = axios.create({
   baseURL: 'https://acaobikeapi.projetonaweb.com.br',
-  headers: { "Content-Type": "application/json" },
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer 5|GQC3SSNCpTW5xHoVmbwBUdJoLUXzB42wQ4ozliZc`
+  },
 })
 
 export const api = {
