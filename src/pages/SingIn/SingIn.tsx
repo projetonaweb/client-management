@@ -5,28 +5,32 @@ import { Inputs } from "../../components/Inputs/Inputs";
 import Buttons from "../../components/Buttons/Buttons";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import type { EventTypes, FormTypes } from '../../types/EventTypes'
-
+import type { EventTypes, FormTypes } from "../../types/EventTypes";
+import { api } from "../../services/api";
 
 export const SingIn = () => {
-  const [user, setUser] = useState<String>()
-  const [password, setPassword] = useState<String>('')
-  const [remember, setRemember] = useState<Boolean>(false)
+  const [user, setUser] = useState<String>();
+  const [password, setPassword] = useState<String>("");
+  const [remember, setRemember] = useState<Boolean>(false);
+  const [error, setError] = useState(null);
+  const [token, setToken] = useState("");
 
   const navigate = useNavigate();
   const handleRegister = () => navigate("/register");
 
-  const handleLogin = async () => { // AQUI SERA UMA REQUISIÇÃO GET PARA VERIFICAR SE TEM O USUARIO CADASTRADO
-    await fetch('http://localhost:8000/usuarios', {
-      method: 'POST',
-      headers: {"Content-Type": 'application/json'},
-      body: JSON.stringify({
-          user,
-          password,
-          remember
-        }),
+  const handleLogin = async (e: FormTypes) => {
+    e.preventDefault();
+    await api
+      .post("/login", {
+        email: user,
+        password: password,
       })
-  }
+      .then((r) => {
+        setToken(r.data.token);
+        navigate("/");
+      })
+      .catch(({ response }) => setError(response.data.message));
+  };
 
   return (
     <C.SingUpContainer>
@@ -42,7 +46,7 @@ export const SingIn = () => {
       </C.LeftSingUp>
 
       <C.RigthSingUp>
-        <C.Form onSubmit={(event: FormTypes) => event.preventDefault()}>
+        <C.Form onSubmit={handleLogin}>
           <Title message="Insira seus dados" />
           <Inputs
             type="text"
@@ -58,23 +62,27 @@ export const SingIn = () => {
             name="Senha"
             placeholder="Digite sua senha"
             value={password}
-            handleOnChange={({ target }: EventTypes) => setPassword(target.value)}
+            handleOnChange={({ target }: EventTypes) =>
+              setPassword(target.value)
+            }
           />
-
+          {error && <p>Deu erro: {error}</p>}
           <C.PasswordForgot>
             <span>
-              <input id="lembrar" type="checkbox" onChange={({ target }: EventTypes) => setRemember(target.checked)}/>
+              <input
+                id="lembrar"
+                type="checkbox"
+                onChange={({ target }: EventTypes) =>
+                  setRemember(target.checked)
+                }
+              />
               <label htmlFor="lembrar">Lembrar</label>
             </span>
             <Link to="a">Esqueceu sua senha?</Link>
           </C.PasswordForgot>
 
           <C.ButtonsContainer>
-            <Buttons 
-              text="Entrar"
-              color="#3ae264b5;"
-              onClick={handleLogin}
-            />
+            <Buttons text="Entrar" color="#3ae264b5;" />
             <Buttons
               onClick={handleRegister}
               text="Registrar"
